@@ -1,0 +1,44 @@
+body {
+    font-family: 'Helvetica Neue', sans-serif; 
+    background-color: rgb(107, 208, 142);
+}
+
+canvas {
+    border: solid black 3px;
+}
+
+#gameField {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.gameButton {
+    text-align: center;
+    position: relative;
+    left: 50%;
+    bottom: -50%;
+    transform: translate(-50%);
+
+    display: block;
+    width: 30%;
+    border: black 3px solid;
+    border-radius: 25px;
+    background-color: rgb(49, 165, 70);
+    color: white;
+    padding: 14px 28px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.gameButton:hover {
+    background-color: rgb(166, 175, 167);
+    color: black;
+}
+
+img {
+    display: none;
+}

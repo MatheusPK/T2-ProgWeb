@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/main.js"></script>
+    <title>Minhoca Louca - Início</title>
+</head>
+<body>
+    <div class="loginField">
+        <h1 class="title">minhoca louca</h1>
+        <form action="game.html" onsubmit="return validateForm()" method="get">
+            <input class="emailField" type="text" id="emailField" name="emailField" placeholder="E-mail em Priplanus">
+            <br>
+            <div class="errorMessage" id="emailErrorMessage">
+                E-mail priplanuano inválido!
+            </div>
+            <br>
+            <select class="difficultyField" id="difficultyField" name="difficultyField">
+                <option value="" disabled selected>Dificuldade</option>
+                <option value="easy">Fácil</option>
+                <option value="normal">Normal</option>
+                <option value="hard">Difícil</option>
+            </select>
+            <br>
+            <div class="errorMessage" id="difficultyErrorMessage">
+                Dificuldade não selecionada!
+            </div>
+            <br>
+            <input class="playButton" type="submit" value="Jogar" id="playButton">
+        </form>
+    </div>
+</body>
+</html>
