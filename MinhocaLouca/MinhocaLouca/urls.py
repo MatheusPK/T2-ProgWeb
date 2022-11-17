@@ -17,5 +17,6 @@ from django.urls import path
 from MinhocaLoucaApp import views
 
 urlpatterns = [
-    path('', views.home),
+    path('', views.home, name='home'),
+    path('game', views.game, name='game') 
 ]
