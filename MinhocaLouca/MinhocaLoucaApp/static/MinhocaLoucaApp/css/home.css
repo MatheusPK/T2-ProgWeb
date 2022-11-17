@@ -3,6 +3,10 @@ body {
     background-color: rgb(107, 208, 142);
 }
 
+h3 {
+    color: whitesmoke;
+}
+
 .container {
     text-align: center;
 }
@@ -20,6 +24,17 @@ body {
     background-color: rgb(56, 124, 124);
 }
 
+.playField{
+    text-align: center;
+    width: fit-content;
+    position: relative;
+    padding: 15px;
+    transform: translate(38%, 0%);
+    border: black 3px solid;
+    border-radius: 25px;
+    background-color: rgb(51, 147, 147);
+}
+
 .title {
     color: rgb(163, 248, 117);
 }
@@ -35,8 +50,9 @@ h1 {
 .difficultyField {
     position: relative;
     width: 150px;
-    font-size: 50px;
-
+    font-size: 20px;
+    background-color: whitesmoke;
+    color: darkgreen;
 }
 
 .emailField{

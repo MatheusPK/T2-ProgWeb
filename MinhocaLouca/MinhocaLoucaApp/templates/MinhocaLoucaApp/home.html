@@ -13,24 +13,21 @@
     <div class="loginField">
         <h1 class="title">minhoca louca</h1>
         <form action="{% url 'game' %}" onsubmit="return validateForm()" method="get">
-            <input class="emailField" type="text" id="emailField" name="emailField" placeholder="E-mail em Priplanus">
-            <br>
-            <div class="errorMessage" id="emailErrorMessage">
-                E-mail priplanuano inválido!
+            <input class="playButton" type="button" value="Login" id="loginButton"> ou <br><br>
+            <div class="playField">
+                <h3> jogar como convidado</h3>
+                <select class="difficultyField" id="difficultyField" name="difficultyField">
+                    <option value="" disabled selected>Dificuldade</option>
+                    <option value="easy">Fácil</option>
+                    <option value="normal">Normal</option>
+                    <option value="hard">Difícil</option>
+                </select>
+                <br>
+                <div class="errorMessage" id="difficultyErrorMessage">
+                    Dificuldade não selecionada!
+                </div>
+                <input class="playButton" type="submit" value="Jogar" id="playButton">
             </div>
-            <br>
-            <select class="difficultyField" id="difficultyField" name="difficultyField">
-                <option value="" disabled selected>Dificuldade</option>
-                <option value="easy">Fácil</option>
-                <option value="normal">Normal</option>
-                <option value="hard">Difícil</option>
-            </select>
-            <br>
-            <div class="errorMessage" id="difficultyErrorMessage">
-                Dificuldade não selecionada!
-            </div>
-            <br>
-            <input class="playButton" type="submit" value="Jogar" id="playButton">
         </form>
     </div>
 </body>
