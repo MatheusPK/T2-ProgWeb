@@ -65,7 +65,7 @@ h3 {
 }
 
 .errorMessage{
-    color: red;
+    color: rgb(135, 2, 2);
     visibility: hidden;
     font-size: large;
     padding-top: 5px;
