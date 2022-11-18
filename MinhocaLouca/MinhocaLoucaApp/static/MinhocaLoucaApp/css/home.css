@@ -3,10 +3,6 @@ body {
     background-color: rgb(107, 208, 142);
 }
 
-h3 {
-    color: whitesmoke;
-}
-
 .container {
     text-align: center;
 }
@@ -47,6 +43,11 @@ h1 {
     text-align: center; 
 }
 
+
+h3 {
+    color: whitesmoke;
+}
+
 .difficultyField {
     position: relative;
     width: 150px;
@@ -78,5 +79,16 @@ h1 {
     font-family: 'Helvetica Neue', sans-serif; 
     color: darkgreen;
     background-color: rgb(163, 248, 117);
+    cursor:pointer;
+}
+
+.link{
+    color: darkgreen;
+    text-decoration: none;
+}
+
+.link:hover{
+    color: whitesmoke;
+    text-decoration: underline;
 }
 

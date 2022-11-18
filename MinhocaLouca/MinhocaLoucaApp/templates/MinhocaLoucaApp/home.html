@@ -10,6 +10,9 @@
     <title>Minhoca Louca - Início</title>
 </head>
 <body>
+    <h2> • Quer salvar sua pontuação? Faça <a class="link" href="{% url 'home' %}">login</a> ! </h2>
+    <h2> • Novo por aqui? <a class="link" href="{% url 'home' %}">Crie</a> uma conta . </h2>
+    <h2> • Sou <a class="link" href="{% url 'home' %}">administrador</a> . </h2>
     <div class="loginField">
         <h1 class="title">minhoca louca</h1>
         <form action="{% url 'game' %}" onsubmit="return validateForm()" method="get">
