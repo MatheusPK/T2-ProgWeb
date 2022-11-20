@@ -1,3 +1,4 @@
+from django.contrib import admin
 """MinhocaLouca URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,5 +19,6 @@ from MinhocaLoucaApp import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('game', views.game, name='game') 
+    path('game', views.game, name='game') ,
+    path('admin/', admin.site.urls)
 ]
