@@ -7,3 +7,6 @@ def home(request):
 
 def game(request):
     return render(request, 'MinhocaLoucaApp/game.html')
+
+def leaderboard(request):
+    return render(request, 'MinhocaLoucaApp/leaderboard.html')
