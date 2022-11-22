@@ -16,6 +16,17 @@ canvas {
 }
 
 .gameButton {
+    width: 200px;
+    height: 70px;
+    font-size: 40px;
+    border-radius: 20px;
+    font-family: 'Helvetica Neue', sans-serif; 
+    color: darkgreen;
+    background-color: rgb(163, 248, 117);
+    cursor:pointer;
+}
+
+/* .gameButton {
     text-align: center;
     position: relative;
     left: 50%;
@@ -37,7 +48,7 @@ canvas {
 .gameButton:hover {
     background-color: rgb(166, 175, 167);
     color: black;
-}
+} */
 
 img {
     display: none;

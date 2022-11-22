@@ -29,7 +29,11 @@
 
     <div id="gameField">
         <h1 id="scoreTitle">PONTOS: 0</h1>
-        <button class="gameButton" id="backButton">VOLTAR</button>
+        
+        {% if not user.is_authenticated %}
+        <h2>Você não está logado, sua pontuação não será salva.</h2>
+        {% endif %}
+        <button class="gameButton" id="backButton">Voltar</button>
     </div>
 </body>
 </html>
