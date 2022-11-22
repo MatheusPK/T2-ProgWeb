@@ -17,6 +17,7 @@ class Score(models.Model):
     )
     nickname = models.ForeignKey(Player, on_delete=models.CASCADE)
     difficulty = models.CharField(max_length=1, choices=DIFFICULTIES)
+    score = models.IntegerField(default=0)
 
     def __str__(self) -> str:
         return (self.nickname, self.difficulty)
