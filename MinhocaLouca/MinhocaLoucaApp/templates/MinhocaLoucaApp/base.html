@@ -10,9 +10,13 @@
     {% block script %}{% endblock %}
 </head>
 <body>
-    <h2> • Quer salvar sua pontuação? Faça <a class="link" href="{% url 'home' %}">login</a> ! </h2>
-    <h2> • Novo por aqui? <a class="link" href="{% url 'home' %}">Crie</a> uma conta . </h2>
+    {% if not user.is_authenticated %}
+    <h2> • Novo por aqui? <a class="link" href="{% url 'signUp' %}">Crie</a> uma conta . </h2>
+    <h2> • Quer salvar sua pontuação? Faça <a class="link" href="{% url 'login' %}">login</a> ! </h2>
     <h2> • Sou <a class="link" href="/admin">administrador</a> . </h2>
+    {% else %}
+    <h2> • Quero fazer <a class="link" href="{% url 'logout' %}">logout</a> . </h2>
+    {% endif %}
     <div class="mainField">
         <h1 class="title">{% block title %}{% endblock %}</h1>
         {% block content %}

@@ -18,6 +18,7 @@ body {
 .mainField {
     text-align: center;
     width: fit-content;
+    max-width: 600px;
     position: absolute;
     padding: 30px;
     left: 50%;
@@ -99,7 +100,7 @@ h3 {
     padding: 10px;
 }
 
-li{
+/* li{
     max-width: 700px;
     text-align: center;
     position: absolute;
@@ -107,5 +108,5 @@ li{
     transform: translate(-50%, -100%);
     font-size: 14px;
     color: var(--error);
-}
+} */
 

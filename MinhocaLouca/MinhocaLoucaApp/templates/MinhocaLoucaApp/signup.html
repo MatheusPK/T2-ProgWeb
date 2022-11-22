@@ -1,0 +1,15 @@
+{% extends 'MinhocaLoucaApp/base.html' %}
+{% block pagename %}Minhoca Louca - Criar Conta{% endblock %}
+{% block title %}criar conta{% endblock %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <table class="formulario">
+        {{ form.as_table }}
+    </table>
+    <br><br>
+    <a href="{% url 'home' %}"><input class="bigButton" type="button" value="Voltar"></a>
+    &nbsp;&nbsp;&nbsp;
+    <input class="bigButton" type="submit" value="Criar">
+</form>
+{% endblock %}

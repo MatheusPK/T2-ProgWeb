@@ -5,10 +5,16 @@
 {% block title %}minhoca louca{% endblock %}
 {% block content %}
 <form action="{% url 'game' %}" onsubmit="return validateForm()" method="get">
+    {% if not user.is_authenticated %}
     <a href="{% url 'login' %}"><input class="bigButton" type="button" value="Login" id="loginButton"></a>
      ou <br><br>
+    {% else %}
+    <h2>Bem vindo de volta, {% firstof user.username "visitante" %}!</h2>
+    {% endif %}
     <div class="playField">
+        {% if not user.is_authenticated %}
         <h3> jogar como convidado</h3>
+        {% endif %}
         <select class="difficultyField" id="difficultyField" name="difficultyField">
             <option value="" disabled selected>Dificuldade</option>
             <option value="easy">Fácil</option>

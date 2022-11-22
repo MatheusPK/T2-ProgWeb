@@ -20,7 +20,9 @@ from MinhocaLoucaApp import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('game', views.game, name='game'),
+    path('signUp', views.signUp, name='signUp'),
     path('login', views.Login.as_view(), name='login'),
+    path('logout', views.Logout.as_view(), name='logout'),
     path('leaderboard', views.leaderboard, name='leaderboard'), 
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
 ]
