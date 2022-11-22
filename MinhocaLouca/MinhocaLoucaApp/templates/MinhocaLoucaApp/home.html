@@ -1,38 +1,25 @@
+{% extends 'MinhocaLoucaApp/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'MinhocaLoucaApp/css/home.css' %}">
-    <script src="{% static 'MinhocaLoucaApp/js/home.js' %}"></script>
-    <title>Minhoca Louca - Início</title>
-</head>
-<body>
-    <h2> • Quer salvar sua pontuação? Faça <a class="link" href="{% url 'home' %}">login</a> ! </h2>
-    <h2> • Novo por aqui? <a class="link" href="{% url 'home' %}">Crie</a> uma conta . </h2>
-    <h2> • Sou <a class="link" href="/admin">administrador</a> . </h2>
-    <div class="loginField">
-        <h1 class="title">minhoca louca</h1>
-        <form action="{% url 'game' %}" onsubmit="return validateForm()" method="get">
-            <a href="{% url 'login' %}"><input class="playButton" type="button" value="Login" id="loginButton"></a>
-             ou <br><br>
-            <div class="playField">
-                <h3> jogar como convidado</h3>
-                <select class="difficultyField" id="difficultyField" name="difficultyField">
-                    <option value="" disabled selected>Dificuldade</option>
-                    <option value="easy">Fácil</option>
-                    <option value="normal">Normal</option>
-                    <option value="hard">Difícil</option>
-                </select>
-                <br>
-                <div class="errorMessage" id="difficultyErrorMessage">
-                    Dificuldade não selecionada!
-                </div>
-                <input class="playButton" type="submit" value="Jogar" id="playButton">
-            </div>
-        </form>
+{% block pagename %}Minhoca Louca - Início{% endblock %}
+{% block script %}<script src="{% static 'MinhocaLoucaApp/js/home.js' %}"></script>{% endblock %}
+{% block title %}minhoca louca{% endblock %}
+{% block content %}
+<form action="{% url 'game' %}" onsubmit="return validateForm()" method="get">
+    <a href="{% url 'login' %}"><input class="bigButton" type="button" value="Login" id="loginButton"></a>
+     ou <br><br>
+    <div class="playField">
+        <h3> jogar como convidado</h3>
+        <select class="difficultyField" id="difficultyField" name="difficultyField">
+            <option value="" disabled selected>Dificuldade</option>
+            <option value="easy">Fácil</option>
+            <option value="normal">Normal</option>
+            <option value="hard">Difícil</option>
+        </select>
+        <br>
+        <div class="errorMessage" id="difficultyErrorMessage">
+            Dificuldade não selecionada!
+        </div>
+        <input class="bigButton" type="submit" value="Jogar" id="playButton">
     </div>
-</body>
-</html>
+</form>
+{% endblock %}
