@@ -1,6 +1,14 @@
+:root {
+    --first:rgb(107, 208, 142);
+    --second:rgb(56, 124, 124);
+    --third:rgb(51, 147, 147);
+    --shoutout:rgb(163, 248, 117);
+    --error:rgb(135, 2, 2);
+}
+
 body {
     font-family: 'Helvetica Neue', sans-serif; 
-    background-color: rgb(107, 208, 142);
+    background-color: var(--first);
 }
 
 .container {
@@ -17,7 +25,7 @@ body {
     transform: translate(-50%, -50%);
     border: black 4px solid;
     border-radius: 25px;
-    background-color: rgb(56, 124, 124);
+    background-color: var(--second);
 }
 
 .playField{
@@ -28,11 +36,11 @@ body {
     transform: translate(38%, 0%);
     border: black 3px solid;
     border-radius: 25px;
-    background-color: rgb(51, 147, 147);
+    background-color: var(--third);
 }
 
 .title {
-    color: rgb(163, 248, 117);
+    color: var(--shoutout);
 }
 
 h1 { 
@@ -56,7 +64,7 @@ h3 {
 }
 
 .errorMessage{
-    color: rgb(135, 2, 2);
+    color: var(--error);
     visibility: hidden;
     font-size: large;
     padding-top: 5px;
@@ -84,12 +92,20 @@ h3 {
 }
 
 .formulario th {
-    /* text-align: right;
-    vertical-align: text-top; */
     width: 60%;
 }
 
 .formulario td{
     padding: 10px;
+}
+
+li{
+    max-width: 700px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    font-size: 14px;
+    color: var(--error);
 }
 
