@@ -50,8 +50,6 @@ const KeyCode = {
 function setup(){
     scoreTitle = document.getElementById("scoreTitle");
     document.getElementById("backButton").addEventListener("click", backToPreviousPage);
-    playAgainButton = document.getElementById("playAgain");
-    playAgainButton.addEventListener("click", load);
     if (difficulty == "hard") document.body.style.backgroundColor = "firebrick";
     load();
 }
@@ -65,7 +63,6 @@ function load() {
     tileMap.load();
     snake.load();
     fruit.spawn();
-    playAgainButton.style.display = "none";
     score = 0;
     scoreTitle.innerHTML = "Use as setinhas do teclado ou WASD";
 }
@@ -262,9 +259,7 @@ function Snake() {
 
             //check map colision
             if(this.gameHasEnded(newPosition)) {
-                gameField.stop();
-                playAgainButton.style.display = "block";
-                scoreTitle.innerHTML = "Você perdeu! PONTOS: " + score;
+                gameOver()
                 return
             }
 
@@ -393,4 +388,14 @@ function getClockwiseTurns(){
     dict[Direction.Right] = Direction.Down;
     dict[Direction.Down] = Direction.Left;
     return dict;
+}
+
+function gameOver() {
+    gameField.stop();
+    scoreTitle.innerHTML = "Você perdeu! PONTOS: " + score;
+    setTimeout(() => {
+        let playAgain = confirm("Deseja jogar novamente?")
+        playAgain ? load() : backToPreviousPage()
+    }, 500)
+    return
 }

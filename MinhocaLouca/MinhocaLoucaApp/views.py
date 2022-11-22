@@ -11,3 +11,6 @@ def game(request):
 
 class Login(LoginView):
     template_name='MinhocaLoucaApp/login.html'
+    
+def leaderboard(request):
+    return render(request, 'MinhocaLoucaApp/leaderboard.html')
