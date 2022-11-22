@@ -16,7 +16,8 @@
     <div class="loginField">
         <h1 class="title">minhoca louca</h1>
         <form action="{% url 'game' %}" onsubmit="return validateForm()" method="get">
-            <input class="playButton" type="button" value="Login" id="loginButton"> ou <br><br>
+            <a href="{% url 'login' %}"><input class="playButton" type="button" value="Login" id="loginButton"></a>
+             ou <br><br>
             <div class="playField">
                 <h3> jogar como convidado</h3>
                 <select class="difficultyField" id="difficultyField" name="difficultyField">

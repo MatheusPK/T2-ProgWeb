@@ -20,17 +20,6 @@ body {
     background-color: rgb(56, 124, 124);
 }
 
-.playField{
-    text-align: center;
-    width: fit-content;
-    position: relative;
-    padding: 15px;
-    transform: translate(38%, 0%);
-    border: black 3px solid;
-    border-radius: 25px;
-    background-color: rgb(51, 147, 147);
-}
-
 .title {
     color: rgb(163, 248, 117);
 }
@@ -45,14 +34,6 @@ h1 {
 
 h3 {
     color: whitesmoke;
-}
-
-.difficultyField {
-    position: relative;
-    width: 150px;
-    font-size: 20px;
-    background-color: whitesmoke;
-    color: darkgreen;
 }
 
 .errorMessage{
@@ -73,13 +54,16 @@ h3 {
     cursor:pointer;
 }
 
-.link{
-    color: darkgreen;
-    text-decoration: none;
+.formulario th {
+    /* text-align: right;
+    vertical-align: text-top; */
+    width: 60%;
 }
 
-.link:hover{
-    color: whitesmoke;
-    text-decoration: underline;
+.formulario td{
+    padding: 10px;
 }
 
+/* input {
+    
+} */

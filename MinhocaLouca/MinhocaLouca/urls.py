@@ -18,5 +18,6 @@ from MinhocaLoucaApp import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('game', views.game, name='game') 
+    path('game', views.game, name='game'),
+    path('login', views.Login.as_view(), name='login')
 ]
