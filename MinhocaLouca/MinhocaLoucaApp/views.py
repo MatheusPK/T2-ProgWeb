@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls.base import reverse_lazy
+from MinhocaLoucaApp.models import Player, EasyScore, NormalScore, HardScore
 
 # Create your views here.
 
@@ -30,3 +31,23 @@ def signUp(request):
         formulario = UserCreationForm()
         context = {'form': formulario,}
         return render(request,'MinhocaLoucaApp/signup.html', context)
+
+def saveScore(request):
+    scorePoints = request.GET.get("score", None)
+    username = request.GET.get("username", None)
+    difficulty = request.GET.get("difficulty", None)
+
+    if difficulty == "easy":
+        score = EasyScore()
+    elif difficulty == "normal":
+        score = NormalScore()
+    elif difficulty == "hard":
+        score = HardScore()
+    else:
+        return
+    
+    score.username = username
+    score.score = scorePoints
+    score.save()
+    return
+

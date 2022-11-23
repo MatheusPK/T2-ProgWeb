@@ -25,4 +25,5 @@ urlpatterns = [
     path('logout', views.Logout.as_view(), name='logout'),
     path('leaderboard', views.leaderboard, name='leaderboard'), 
     path('admin/', admin.site.urls),
+    path("saveScore", views.saveScore, name='saveScore'),
 ]

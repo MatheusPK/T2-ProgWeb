@@ -393,9 +393,19 @@ function getClockwiseTurns(){
 function gameOver() {
     gameField.stop();
     scoreTitle.innerHTML = "Você perdeu! PONTOS: " + score;
+    saveScore();
     setTimeout(() => {
         let playAgain = confirm("Deseja jogar novamente?")
         playAgain ? load() : backToPreviousPage()
     }, 500)
     return
+}
+
+function saveScore(){
+    var xmlhttp = new XMLHttpRequest();
+    var username = "username={% firstof user.username \"visitante\" %}";
+    var score = "score=" + encodeURIComponent(score);
+    var difficulty = "difficulty=" + encodeURIComponent(difficulty);
+    xmlhttp.open("GET","{% url 'saveScore' %}?" + username + "&" + score + "&" + difficulty, true);
+    xmlhttp.send(null);
 }
