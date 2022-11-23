@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.base import View
 from django.urls.base import reverse_lazy
-from MinhocaLoucaApp.models import Player, EasyScore, NormalScore, HardScore
+from MinhocaLoucaApp.models import EasyScore, NormalScore, HardScore
 
 # Create your views here.
 
@@ -18,8 +19,14 @@ class Login(LoginView):
 class Logout(LogoutView):
     next_page=reverse_lazy('home')
     
-def leaderboard(request):
-    return render(request, 'MinhocaLoucaApp/leaderboard.html')
+class Leaderboard(View):
+    def get(self, request, *args, **kwargs):
+        contexto = {
+            'easyScores'   : EasyScore.objects.all(),
+            'normalScores' : NormalScore().objects.all(),
+            'hardScores'   : HardScore().objects.all()
+        }
+        return render(request, 'MinhocaLoucaApp/leaderboard.html', contexto)
 
 def signUp(request):
     if request.method == 'POST':
