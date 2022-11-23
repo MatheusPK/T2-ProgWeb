@@ -23,6 +23,6 @@ urlpatterns = [
     path('signUp', views.signUp, name='signUp'),
     path('login', views.Login.as_view(), name='login'),
     path('logout', views.Logout.as_view(), name='logout'),
-    path('leaderboard', views.leaderboard, name='leaderboard'), 
+    path('leaderboard', views.Leaderboard.as_view(), name='leaderboard'), 
     path('admin/', admin.site.urls),
 ]
