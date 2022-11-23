@@ -40,6 +40,7 @@ def signUp(request):
         return render(request,'MinhocaLoucaApp/signup.html', context)
 
 def saveScore(request):
+    # print(request.method)
     scorePoints = request.GET.get("score", None)
     username = request.GET.get("username", None)
     difficulty = request.GET.get("difficulty", None)

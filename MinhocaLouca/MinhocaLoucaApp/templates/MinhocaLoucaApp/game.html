@@ -7,6 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'MinhocaLoucaApp/css/game.css'%}">
     <script src="{% static 'MinhocaLoucaApp/js/game.js' %}"></script>
+    <script type="text/javascript"> 
+        function saveScore(score, difficulty){
+            var xmlhttp = new XMLHttpRequest();
+            var userIsAuth = "{{ user.is_authenticated }}";
+            if (userIsAuth == "False") return;
+            var username = "username={{ user.username }}";
+            console.log(username);
+            var score = "score=" + encodeURIComponent(score);
+            console.log(score);
+            var difficulty = "difficulty=" + encodeURIComponent(difficulty);
+            console.log(difficulty);
+            xmlhttp.open("GET","{% url 'saveScore' %}?" + username + "&" + score + "&" + difficulty, true);
+            xmlhttp.send(null);
+        }
+    </script>
+
     <title>Minhoca Louca - Jogo</title>
 </head>
 <body>
