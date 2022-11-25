@@ -23,9 +23,10 @@ class Leaderboard(View):
     def get(self, request, *args, **kwargs):
         contexto = {
             'easyScores'   : EasyScore.objects.all(),
-            'normalScores' : NormalScore().objects.all(),
-            'hardScores'   : HardScore().objects.all()
+            'normalScores' : NormalScore.objects.all(),
+            'hardScores'   : HardScore.objects.all()
         }
+        print(contexto)
         return render(request, 'MinhocaLoucaApp/leaderboard.html', contexto)
 
 def signUp(request):
