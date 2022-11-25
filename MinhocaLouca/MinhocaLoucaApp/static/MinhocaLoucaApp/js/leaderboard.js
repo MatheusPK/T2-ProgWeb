@@ -5,19 +5,19 @@ function difficultySelectionChanged() {
     var hardScores = document.getElementsByClassName("hardScore")
     switch (newValue) {
         case "easy":
-            toggle("easyScore", "block")
+            toggle("easyScore", "table-row")
             toggle("normalScore", "none")
             toggle("hardScore", "none")
             break;
         case "normal":
             toggle("easyScore", "none")
-            toggle("normalScore", "block")
+            toggle("normalScore", "table-row")
             toggle("hardScore", "none")
             break
         case "hard":
             toggle("easyScore", "none")
             toggle("normalScore", "none")
-            toggle("hardScore", "block")
+            toggle("hardScore", "table-row")
         default:
             break;
     }
