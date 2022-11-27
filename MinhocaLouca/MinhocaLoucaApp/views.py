@@ -18,15 +18,31 @@ class Login(LoginView):
 
 class Logout(LogoutView):
     next_page=reverse_lazy('home')
+
+def indexScores(scores): # labels ordered scores index
+    list = []
+    i = 0
+    currentScore = 1000000 # greater than max possible score
+    for score in scores:
+        if score.score < currentScore:
+            i += 1
+        currentScore = score.score
+        list.append({'value': score, 'i': str(i) + 'º'})
+    return list
     
 class Leaderboard(View):
     def get(self, request, *args, **kwargs):
-        contexto = {
-            'easyScores'   : EasyScore.objects.all().order_by('-score'),
-            'normalScores' : NormalScore.objects.all().order_by('-score'),
-            'hardScores'   : HardScore.objects.all().order_by('-score')
+        easyScores = EasyScore.objects.all().order_by('-score')
+        normalScores = NormalScore.objects.all().order_by('-score')
+        hardScores = HardScore.objects.all().order_by('-score')
+
+        context = {
+            'easyScores'   : indexScores(easyScores),
+            'normalScores' : indexScores(normalScores),
+            'hardScores'   : indexScores(hardScores)
         }
-        return render(request, 'MinhocaLoucaApp/leaderboard.html', contexto)
+
+        return render(request, 'MinhocaLoucaApp/leaderboard.html', context)
 
 def signUp(request):
     if request.method == 'POST':
