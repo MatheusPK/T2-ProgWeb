@@ -26,4 +26,5 @@ urlpatterns = [
     path('leaderboard', views.Leaderboard.as_view(), name='leaderboard'), 
     path('admin/', admin.site.urls),
     path("saveScore", views.saveScore, name='saveScore'),
+    path('deleteAccount', views.deleteAccount, name='deleteAccount')
 ]

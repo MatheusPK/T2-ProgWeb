@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import View
+from django.contrib.auth.models import User
 from django.urls.base import reverse_lazy
 from MinhocaLoucaApp.models import EasyScore, NormalScore, HardScore
 
@@ -53,10 +54,29 @@ def signUp(request):
         if formulario.is_valid():
             formulario.save()
             return redirect('login')
+        render(request,'MinhocaLoucaApp/signup.html', context)
     else:
         formulario = UserCreationForm()
         context = {'form': formulario,}
         return render(request,'MinhocaLoucaApp/signup.html', context)
+
+def deleteAccount(request):
+    username = request.GET.get("username", None)
+
+    if User.objects.filter(username=username).exists():
+        User.objects.get(username=username).delete()
+
+    if EasyScore.objects.filter(username=username).exists():
+        EasyScore.objects.get(username=username).delete()
+
+    if NormalScore.objects.filter(username=username).exists():
+        NormalScore.objects.get(username=username).delete()
+
+    if HardScore.objects.filter(username=username).exists():
+        HardScore.objects.get(username=username).delete()
+
+
+    return redirect('home')
 
 def saveScore(request):
     # print(request.method)
