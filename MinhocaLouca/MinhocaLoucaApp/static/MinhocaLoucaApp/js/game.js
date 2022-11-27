@@ -50,6 +50,8 @@ const KeyCode = {
 function setup(){
     scoreTitle = document.getElementById("scoreTitle");
     document.getElementById("backButton").addEventListener("click", backToPreviousPage);
+    document.getElementById("playAgain").addEventListener("click", load);
+    document.getElementById("leaderboard").addEventListener("click", goToLeaderboard);
     if (difficulty == "hard") document.body.style.backgroundColor = "firebrick";
     load();
 }
@@ -77,6 +79,10 @@ function update() {
 //returns to previous html page
 function backToPreviousPage(){
     window.history.back();
+}
+
+function goToLeaderboard() {
+    window.location = "/leaderboard"
 }
 
 //gets game difficulty by parsing url
@@ -394,9 +400,8 @@ function gameOver() {
     gameField.stop();
     scoreTitle.innerHTML = "Você perdeu! PONTOS: " + score;
     saveScore(score, difficulty);
-    setTimeout(() => {
-        let playAgain = confirm("Deseja jogar novamente?")
-        playAgain ? load() : backToPreviousPage()
-    }, 500)
+    document.getElementById("playAgain").style.display = "block"
+    document.getElementById("leaderboard").style.display = "block"
+
     return
 }
