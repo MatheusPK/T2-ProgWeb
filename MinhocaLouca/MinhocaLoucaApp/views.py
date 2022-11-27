@@ -54,7 +54,9 @@ def signUp(request):
         if formulario.is_valid():
             formulario.save()
             return redirect('login')
-        render(request,'MinhocaLoucaApp/signup.html', context)
+        formulario = UserCreationForm()
+        context = {'form': formulario,}
+        return render(request,'MinhocaLoucaApp/signup.html', context)
     else:
         formulario = UserCreationForm()
         context = {'form': formulario,}
