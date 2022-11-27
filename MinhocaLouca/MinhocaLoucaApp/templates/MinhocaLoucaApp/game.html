@@ -54,7 +54,9 @@
                 <tr>
                     <td><button class="gameButton" id="backButton">Voltar</button></td>
                     <td><button class="gameButton" id="playAgain" style="display: none">Jogar novamente</button></td>
+                    {% if user.is_authenticated %}
                     <td><button class="gameButton" id="leaderboard" style="display: none">Placar de jogadores</button></td>
+                    {% endif %}
                 </tr>
             </table>  
         </div>

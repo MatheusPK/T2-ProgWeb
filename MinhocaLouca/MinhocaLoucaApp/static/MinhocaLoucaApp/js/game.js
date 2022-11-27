@@ -12,6 +12,7 @@ var hasUpdated;
 
 var playAgainButton;
 var scoreTitle;
+var leaderboardButton;
 
 
 
@@ -49,9 +50,13 @@ const KeyCode = {
 //setups references and load
 function setup(){
     scoreTitle = document.getElementById("scoreTitle");
+    leaderboardButton = document.getElementById("leaderboard");
+    playAgainButton = document.getElementById("playAgain");
     document.getElementById("backButton").addEventListener("click", backToPreviousPage);
-    document.getElementById("playAgain").addEventListener("click", load);
-    document.getElementById("leaderboard").addEventListener("click", goToLeaderboard);
+    
+    if (leaderboardButton != null) leaderboardButton.addEventListener("click", goToLeaderboard);
+    playAgainButton.addEventListener("click", load)
+
     if (difficulty == "hard") document.body.style.backgroundColor = "firebrick";
     load();
 }
@@ -67,6 +72,8 @@ function load() {
     fruit.spawn();
     score = 0;
     scoreTitle.innerHTML = "Use as setinhas do teclado ou WASD";
+    playAgainButton.style.display = "none"
+    if (leaderboardButton != null) leaderboardButton.style.display = "none"
 }
 
 //updates every interval
@@ -401,7 +408,7 @@ function gameOver() {
     scoreTitle.innerHTML = "Você perdeu! PONTOS: " + score;
     saveScore(score, difficulty);
     document.getElementById("playAgain").style.display = "block"
-    document.getElementById("leaderboard").style.display = "block"
-
+    if (leaderboardButton != null)
+        leaderboardButton.style.display = "block"
     return
 }
