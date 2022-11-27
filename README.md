@@ -47,4 +47,9 @@ Dependendo da dificuldade selecionada, diferentes sprites aparecerão. <br>
 ### 1.3 Fluxo de Telas
 <img src="fluxograma.png" alt="Fluxograma Minhoca Louca"/>
 
+### 1.4 Autenticação e Leaderboard
+O jogador pode jogar anonimamente (como visitante) ou criar uma conta.
+Após cada partida, o jogador autenticado (logado em uma conta) terá sua pontuação salva e poderá comparar seu resultado atual com antigos e com outros jogadores na tela de leaderboard. 
 
+### 1.5 Usuário Administrador
+O administrador do site tem acesso a todos os placares e pode criar, apagar e atualizar cada um.
