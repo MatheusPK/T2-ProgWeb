@@ -1,7 +1,27 @@
+:root {
+  --first:rgb(107, 208, 142);
+  --second:rgb(56, 124, 124);
+  --third:rgb(51, 147, 147);
+  --shoutout:rgb(163, 248, 117);
+  --error:rgb(135, 2, 2);
+}
+
+body {
+  font-family: 'Helvetica Neue', sans-serif; 
+  background-color: var(--first);
+}
+
 .fixed_header {
   width: 600px;
   table-layout: fixed;
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   border-collapse: collapse;
+  border: black 4px solid;
 }
 
 .fixed_header tbody {
@@ -9,6 +29,8 @@
   width: 100%;
   overflow: auto;
   height: 600px;
+  background-color: var(--third);
+  color: whitesmoke;
 }
 
 .fixed_header thead tr {
@@ -16,8 +38,8 @@
 }
 
 .fixed_header thead {
-  background: black;
-  color: #fff;
+  background: var(--second);
+  color: var(--shoutout);
 }
 
 .fixed_header th,
@@ -25,4 +47,25 @@
   padding: 5px;
   text-align: left;
   width: 200px;
+  border-bottom: black 2px solid;
+}
+
+.difficultyField {
+  position: relative;
+  width: 100px;
+  font-size: 15px;
+  background-color: whitesmoke;
+  color: darkgreen;
+}
+
+.bigButton{
+  width: 100px;
+  height: 50px;
+  font-size: 30px;
+  border-radius: 10px;
+  position: relative;
+  font-family: 'Helvetica Neue', sans-serif; 
+  color: darkgreen;
+  background-color: var(--shoutout);
+  cursor:pointer;
 }

@@ -1,5 +1,9 @@
 onload= function(){
     difficultySelectionChanged()
+    document.getElementById("backButton").addEventListener("click", function (){
+        window.history.back();
+        console.log("oi")
+    })
 }
 
 function difficultySelectionChanged() {
