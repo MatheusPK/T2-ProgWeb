@@ -11,41 +11,48 @@
     <title>leaderboard</title>
 </head>
 <body>
-    <select onChange="difficultySelectionChanged()" class="leaderboardDifficulty" id="leaderboardDifficulty" name="leaderboardDifficulty">
-        <option value="" disabled selected>Dificuldade</option>
-        <option value="easy">Fácil</option>
-        <option value="normal">Normal</option>
-        <option value="hard">Difícil</option>
-    </select>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Jogador</th>
-                <td scope="col">Pontuação</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% if easyScores and normalScores and hardScores %}
-            {% for score in easyScores %}
-            <tr class="easyScore">
-                <td>{{ score.username }}</th>
-                <td>{{ score.score }}</th>
-            </tr>
-            {% endfor %}
-            {% for score in normalScores %}
-            <tr class="normalScore">
-                <td>{{ score.username }}</th>
-                <td>{{ score.score }}</th>
-            </tr>
-            {% endfor %}
-            {% for score in hardScores %}
-            <tr class="hardScore">
-                <td>{{ score.username }}</th>
-                <td>{{ score.score }}</th>
-            </tr>
-            {% endfor %}
-            {% endif %}
-        </tbody>
-    </table>
+    <div class="d-flex justify-content-md-center align-items-center vh-100">
+            <table class="table table-bordered w-auto">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">
+                            Rank --->                            
+                            <select onChange="difficultySelectionChanged()" class="form-select-bg-size" id="leaderboardDifficulty" name="leaderboardDifficulty">
+                                <option value="" disabled selected>Dificuldade</option>
+                                <option value="easy">Fácil</option>
+                                <option value="normal">Normal</option>
+                                <option value="hard">Difícil</option>
+                            </select></th>
+                        <th scope="col">Jogador</th>
+                        <th scope="col">Pontuação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if easyScores and normalScores and hardScores %}
+                    {% for score in easyScores %}
+                    <tr class="easyScore">
+                        <td class="text-center">1</td>
+                        <td>{{ score.username }}</th>
+                        <td>{{ score.score }}</th>
+                    </tr>
+                    {% endfor %}
+                    {% for score in normalScores %}
+                    <tr class="normalScore">
+                        <td class="text-center">1</td>
+                        <td>{{ score.username }}</th>
+                        <td>{{ score.score }}</th>
+                    </tr>
+                    {% endfor %}
+                    {% for score in hardScores %}
+                    <tr class="hardScore">
+                        <td class="text-center">1</td>
+                        <td>{{ score.username }}</th>
+                        <td>{{ score.score }}</th>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+    </div>
 </body>
 </html>
