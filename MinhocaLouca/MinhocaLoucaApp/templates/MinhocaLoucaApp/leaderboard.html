@@ -31,25 +31,25 @@
                 </tr>
             </thead>
             <tbody>
-                {% if easyScores and normalScores and hardScores %}
+                {% if easyScores or normalScores or hardScores %}
                 {% for score in easyScores %}
                 <tr class="easyScore">
                     <td class="text-center">{{ score.i }}</td>
-                    <td>{{ score.value.username }}</th>
+                    <td>{{ score.value.player.username }}</th>
                     <td>{{ score.value.score }}</th>
                 </tr>
                 {% endfor %}
                 {% for score in normalScores %}
                 <tr class="normalScore">
                     <td class="text-center">{{ score.i }}</td>
-                    <td>{{ score.value.username }}</th>
+                    <td>{{ score.value.player.username }}</th>
                     <td>{{ score.value.score }}</th>
                 </tr>
                 {% endfor %}
                 {% for score in hardScores %}
                 <tr class="hardScore">
                     <td class="text-center">{{ score.i }}</td>
-                    <td>{{ score.value.username }}</th>
+                    <td>{{ score.value.player.username }}</th>
                     <td>{{ score.value.score }}</th>
                 </tr>
                 {% endfor %}

@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import View
 from django.contrib.auth.models import User
 from django.urls.base import reverse_lazy
-from MinhocaLoucaApp.models import EasyScore, NormalScore, HardScore
+from MinhocaLoucaApp.models import EasyScore2, NormalScore2, HardScore2
 
 # Create your views here.
 
@@ -35,9 +35,10 @@ class Leaderboard(View):
     def get(self, request, *args, **kwargs):
         currentDiff = request.GET.get("difficulty", None)
 
-        easyScores = EasyScore.objects.all().order_by('-score')
-        normalScores = NormalScore.objects.all().order_by('-score')
-        hardScores = HardScore.objects.all().order_by('-score')
+        easyScores = EasyScore2.objects.all().order_by('-score')
+        normalScores = NormalScore2.objects.all().order_by('-score')
+        hardScores = HardScore2.objects.all().order_by('-score')
+        print(easyScores)
 
         context = {
             'easyScores'   : indexScores(easyScores),
@@ -68,35 +69,30 @@ def deleteAccount(request):
     if User.objects.filter(username=username).exists():
         User.objects.get(username=username).delete()
 
-    if EasyScore.objects.filter(username=username).exists():
-        EasyScore.objects.get(username=username).delete()
-
-    if NormalScore.objects.filter(username=username).exists():
-        NormalScore.objects.get(username=username).delete()
-
-    if HardScore.objects.filter(username=username).exists():
-        HardScore.objects.get(username=username).delete()
-
-
     return redirect('home')
 
 def saveScore(request):
-    # print(request.method)
+    if not request.user.is_authenticated:
+        return
+
+        
     scorePoints = request.GET.get("score", None)
     username = request.GET.get("username", None)
     difficulty = request.GET.get("difficulty", None)
 
     if difficulty == "easy":
-        score = EasyScore()
+        score = EasyScore2()
     elif difficulty == "normal":
-        score = NormalScore()
+        score = NormalScore2()
     elif difficulty == "hard":
-        score = HardScore()
+        score = HardScore2()
     else:
         return
     
-    score.username = username
-    score.score = scorePoints
-    score.save()
+    if request.user.is_authenticated:
+        score.player = request.user
+        score.score = scorePoints
+        score.save()
+
     return
 
