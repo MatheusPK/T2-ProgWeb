@@ -32,6 +32,8 @@ def indexScores(scores): # labels ordered scores index
     
 class Leaderboard(View):
     def get(self, request, *args, **kwargs):
+        currentDiff = request.GET.get("difficulty", None)
+
         easyScores = EasyScore.objects.all().order_by('-score')
         normalScores = NormalScore.objects.all().order_by('-score')
         hardScores = HardScore.objects.all().order_by('-score')
@@ -39,7 +41,8 @@ class Leaderboard(View):
         context = {
             'easyScores'   : indexScores(easyScores),
             'normalScores' : indexScores(normalScores),
-            'hardScores'   : indexScores(hardScores)
+            'hardScores'   : indexScores(hardScores),
+            'currentDiff'  : currentDiff
         }
 
         return render(request, 'MinhocaLoucaApp/leaderboard.html', context)

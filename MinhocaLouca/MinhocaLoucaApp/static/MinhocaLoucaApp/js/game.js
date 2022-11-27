@@ -89,7 +89,7 @@ function backToPreviousPage(){
 }
 
 function goToLeaderboard() {
-    window.location = "/leaderboard"
+    window.location = "/leaderboard?difficulty=" + encodeURIComponent(difficulty);
 }
 
 //gets game difficulty by parsing url

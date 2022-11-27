@@ -1,8 +1,10 @@
+onload= function(){
+    difficultySelectionChanged()
+}
+
 function difficultySelectionChanged() {
     var newValue = document.getElementById("leaderboardDifficulty").value
-    var easyScores = document.getElementsByClassName("easyScore")
-    var normalScores = document.getElementsByClassName("normalScore")
-    var hardScores = document.getElementsByClassName("hardScore")
+
     switch (newValue) {
         case "easy":
             toggle("easyScore", "table-row")

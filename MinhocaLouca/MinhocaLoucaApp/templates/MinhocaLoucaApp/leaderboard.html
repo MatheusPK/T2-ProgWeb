@@ -18,10 +18,10 @@
                         <th scope="col">
                             Rank --->                            
                             <select onChange="difficultySelectionChanged()" class="form-select-bg-size" id="leaderboardDifficulty" name="leaderboardDifficulty">
-                                <option value="" disabled selected>Dificuldade</option>
-                                <option value="easy">Fácil</option>
-                                <option value="normal">Normal</option>
-                                <option value="hard">Difícil</option>
+                                <!-- <option value="" disabled selected>Dificuldade</option> -->
+                                <option value="easy" {% if currentDiff == "easy" %} selected {% endif %}>Fácil</option>
+                                <option value="normal" {% if currentDiff == "normal" %} selected {% endif %}>Normal</option>
+                                <option value="hard" {% if currentDiff == "hard" %} selected {% endif %}>Difícil</option>
                             </select></th>
                         <th scope="col">Jogador</th>
                         <th scope="col">Pontuação</th>
