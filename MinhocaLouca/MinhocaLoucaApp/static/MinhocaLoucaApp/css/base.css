@@ -40,6 +40,16 @@ body {
     background-color: var(--third);
 }
 
+.editField {
+    width: fit-content;
+    position: relative;
+    padding: 15px;
+    border: black 4px solid;
+    border-radius: 25px;
+    background-color: var(--second);
+    display: none;
+}
+
 .title {
     color: var(--shoutout);
 }
@@ -98,6 +108,11 @@ h3 {
 
 .formulario td{
     padding: 10px;
+}
+
+.noStyle {
+    all: unset;
+    cursor: pointer;
 }
 
 /* li{

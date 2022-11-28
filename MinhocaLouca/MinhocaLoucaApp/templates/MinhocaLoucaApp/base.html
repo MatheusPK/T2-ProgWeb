@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,39 @@
     <title>{% block pagename %}{% endblock %}</title>
     {% block script %}{% endblock %}
 </head>
+<script>
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    function showEditSection() {
+        document.getElementById("editField").style.display = "block"
+    }
+
+    function updateUsername() {
+        newUsername = "newUsername=" + document.getElementById("fname").value
+        var xhttp = new XMLHttpRequest()
+        xhttp.open("POST", "{% url 'editAccount' %}", true)
+        xhttp.setRequestHeader("X-CSRFToken", getCookie("csrftoken"))
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(newUsername)
+    }
+
+</script>
+
 <body>
     {% if not user.is_authenticated %}
     <h2> • Novo por aqui? <a class="link" href="{% url 'signUp' %}">Crie</a> uma conta . </h2>
@@ -16,6 +50,14 @@
     <h2> • Sou <a class="link" href="/admin">administrador</a> . </h2>
     {% else %}
     <h2> • Quero fazer <a class="link" href="{% url 'logout' %}">logout</a> . </h2>
+    <h2> • <a class="link"><button class="noStyle" onclick="showEditSection()">Editar nome de usuário</button></a> .
+    </h2>
+    <div class="editField" id="editField">
+        <form onsubmit="return updateUsername()">
+            <label for="fname">Novo nome de usuário:</label><br>
+            <input type="text" id="fname" name="fname"><input type="submit" value="Alterar">
+        </form>
+    </div>
     <h2> • <a class="link" href="{% url 'deleteAccount' %}?username={{ user.username }}">Apagar conta</a> . </h2>
     {% endif %}
     <div class="mainField">
@@ -24,4 +66,5 @@
         {% endblock %}
     </div>
 </body>
+
 </html>

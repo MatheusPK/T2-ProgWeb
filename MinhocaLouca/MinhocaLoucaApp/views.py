@@ -63,6 +63,15 @@ def signUp(request):
         context = {'form': formulario,}
         return render(request,'MinhocaLoucaApp/signup.html', context)
 
+def editAccount(request):
+    if request.method == 'POST':
+        newUsername = request.POST.get("newUsername")
+        if request.user.is_authenticated:
+            updatedUser = request.user
+            updatedUser.username = newUsername
+            updatedUser.save()
+    return redirect('home')
+
 def deleteAccount(request):
     username = request.GET.get("username", None)
 
