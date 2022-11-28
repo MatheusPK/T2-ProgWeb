@@ -33,7 +33,9 @@
     }
 
     function updateUsername() {
-        newUsername = "newUsername=" + document.getElementById("fname").value
+        value = document.getElementById("fname").value
+        if (value.length == 0) return;
+        newUsername = "newUsername=" + value
         var xhttp = new XMLHttpRequest()
         xhttp.open("POST", "{% url 'editAccount' %}", true)
         xhttp.setRequestHeader("X-CSRFToken", getCookie("csrftoken"))
